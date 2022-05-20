@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NotesProject.Areas.Identity.Data;
+using NotesProject.Model;
 
 namespace NotesProject.Data;
 
@@ -11,6 +12,9 @@ public class NotesProjectContext : IdentityDbContext<User>
         : base(options)
     {
     }
+
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Note> Notes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
