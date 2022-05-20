@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NotesProject.Areas.Identity.Data;
 using NotesProject.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("NotesProjectContextConnection") ?? throw new InvalidOperationException("Connection string 'NotesProjectContextConnection' not found.");
 
 builder.Services.AddDbContext<NotesProjectContext>(options =>
-    options.UseSqlServer(connectionString));;
+    options.UseSqlServer(connectionString)); ;
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<NotesProjectContext>();;
+    .AddEntityFrameworkStores<NotesProjectContext>(); ;
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -27,7 +28,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
 
