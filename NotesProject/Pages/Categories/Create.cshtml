@@ -1,0 +1,18 @@
+﻿@page
+@model NotesProject.Pages.Categories.CreateModel
+@{
+}
+
+<section>
+	<h2>Pridėti kategoriją</h2>
+	<div class="create-category-container category">
+		<form method="post">
+			<label asp-for="Category"></label>
+			<input asp-for="Category.CategoryName" />
+			<input type="submit" value="Pridėti" />
+			<div class="edit">
+				<a asp-page="Index"><i class="fa-solid fa-arrow-left"></i></a>
+			</div>
+		</form>
+	</div>
+</section>

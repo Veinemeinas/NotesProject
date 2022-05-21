@@ -1,0 +1,23 @@
+﻿@page
+@model NotesProject.Pages.Categories.IndexModel
+@{
+	ViewData["Title"] = "Kategorijos";
+}
+<section>
+	<h2>Tavo užrašų kategorijos</h2>
+	<form method="post">
+		<div class="category-container">
+			@foreach (var category in Model.Categories)
+			{
+				<div class="category">
+					<a asp-page="../Notes/Index" asp-route-id="@category.Id"><div class="category-item">@category.CategoryName</div></a>
+					<div class="edit">
+						<a asp-page="Edit" asp-route-id="@category.Id" asp-route-categoryName="@category.CategoryName"><i class="fa-solid fa-pen-to-square pen"></i></a>
+						<button asp-page-handler="Delete" asp-route-id="@category.Id" class="button"><i class="fa-solid fa-xmark fa-lg"></i></button>
+					</div>
+				</div>
+			}
+			<a asp-page="Create"><div class="category-item-new">Pridėti naują kategoriją</div></a>
+		</div>
+	</form>
+</section>

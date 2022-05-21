@@ -1,18 +1,159 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/*----------Other----------*/
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: black;
+    }
+
+/*----------Category----------*/
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.category {
+    position: relative;
+}
+
+.category-item {
+    background-color: coral;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    font-weight: bold;
+    padding: 3rem 0.5rem 1rem 0.5rem;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
+
+.category-item-new {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    font-weight:bold;
+    color:coral;
+    padding: 1rem;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
+
+.create-category-container {
+    background-color: coral;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    margin-top: 2rem;
+    padding: 3rem 1rem 5rem 1rem;
+    height: 100px;
+    width: fit-content;
+}
+
+.button {
+    background: none;
+    border: none;
+}
+
+.edit {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.pen {
+    margin-right: 5px;
+}
+
+/*----------Notes----------*/
+
+.note-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.note {
+    position: relative;
+}
+
+.note-item {
+    background-color: coral;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    font-weight: bold;
+    padding: 3rem 0.5rem 1rem 0.5rem;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+}
+
+.note-content{
+    font-weight:normal;
+    text-align:left;
+}
+
+.note-item-new {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    font-weight: bold;
+    color: coral;
+    padding-top: 3rem;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+}
+
+.create-category-container {
+    background-color: coral;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px 2px #000000;
+    margin-top: 2rem;
+    padding: 3rem 1rem 5rem 1rem;
+    height: 100px;
+    width: fit-content;
+}
+
+.button {
+    background: none;
+    border: none;
+}
+
+.edit {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.pen {
+    margin-right: 5px;
