@@ -13,8 +13,11 @@
 			<input type="hidden" asp-for="Note.CategoryId" />
 			<input type="submit" value="Pakeisti" />
 			<div class="edit">
-				<a asp-page="Index"><i class="fa-solid fa-arrow-left"></i></a>
+				<a asp-page="Index?id=Note.CategoryId" ><i class="fa-solid fa-arrow-left"></i></a>
 			</div>
 		</form>
 	</div>
 </section>
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}

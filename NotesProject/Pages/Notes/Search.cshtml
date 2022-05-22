@@ -1,5 +1,5 @@
 ﻿@page
-@model NotesProject.Pages.Notes.IndexModel
+@model NotesProject.Pages.Notes.SearchModel
 @{
 }
 
@@ -10,10 +10,9 @@
 			@foreach (var note in Model.Notes)
 			{
 				<div class="note">
-
 					<div class="note-item">
 						<div>@note.Title</div>
-						<hr>
+						<hr />
 						@{
 							var notesArray = note.Content.Split("; ");
 							foreach (var item in notesArray)
@@ -29,7 +28,7 @@
 					</div>
 				</div>
 			}
-			<a asp-page="Create" asp-route-noteCategory="@Model.CategoryId"><div class="note-item-new">Pridėti naują užrašą</div></a>
+
 		</div>
 	</form>
 </section>

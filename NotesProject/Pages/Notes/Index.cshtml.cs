@@ -16,6 +16,8 @@ namespace NotesProject.Pages.Notes
         public List<Note> Notes { get; set; }
         [BindProperty]
         public int CategoryId { get; set; }
+        [BindProperty]
+        public string Search { get; set; }
         public IndexModel(NotesRepository notesRepository, UserService userService)
         {
             _notesRepository = notesRepository;
@@ -33,6 +35,21 @@ namespace NotesProject.Pages.Notes
         {
             _notesRepository.RemoveNote(id);
             return RedirectToPage("Index", null, new { id = categoryId });
+        }
+
+        /*        public IActionResult OnSearchPost()
+                {
+                    var userId = _userService.GetUserId();
+                    Notes = _notesRepository.SearchNotes(Search, userId);
+                    return Page();
+
+                }*/
+        public IActionResult OnPostSearch()
+        {
+            var userId = _userService.GetUserId();
+            Notes = _notesRepository.SearchNotes(Search, userId);
+
+            return Page();
         }
     }
 }

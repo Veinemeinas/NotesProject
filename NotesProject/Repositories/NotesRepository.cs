@@ -40,5 +40,10 @@ namespace NotesProject.Repositories
             _context.Remove(note);
             _context.SaveChanges();
         }
+
+        public List<Note> SearchNotes(string search, string userId)
+        {
+            return _context.Notes.Where(n => n.Title.Contains(search) && n.UserId == userId).ToList();
+        }
     }
 }

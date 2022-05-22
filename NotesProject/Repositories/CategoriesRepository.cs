@@ -15,7 +15,7 @@ namespace NotesProject.Repositories
 
         public List<Category> GetCategories(string id)
         {
-            return _context.Categories.Where(c => c.UserId == id).ToList();
+            return _context.Categories.Include(c => c.Notes).Where(c => c.UserId == id).ToList();
         }
 
         public Category GetCategory(int id)
