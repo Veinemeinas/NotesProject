@@ -31,7 +31,8 @@ namespace NotesProject.Pages.Categories
 
         public IActionResult OnPostDelete(int id)
         {
-            _categoriesRepository.RemoveCategory(id);
+            var userId = _userService.GetUserId();
+            _categoriesRepository.RemoveCategory(id, userId);
             return RedirectToPage("Index");
         }
     }

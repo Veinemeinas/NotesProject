@@ -7,8 +7,7 @@
 	<h2>Keisti kategorijos pavadinimą</h2>
 	<div class="create-category-container category">
 		<form method="post">
-			<label asp-for="Category"></label>
-			<input asp-for="Category.CategoryName" />
+			<input asp-for="Category.CategoryName" placeholder="Kategorijos pavadinimas" />
 			<input type="submit" value="Redaguoti" />
 			<div class="edit">
 				<a asp-page="Index"><i class="fa-solid fa-arrow-left"></i></a>

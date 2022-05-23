@@ -182,3 +182,7 @@ a {
 .h2-title{
     padding-bottom: 1rem;
 }
+
+.search{
+    width: 300px;
+}

@@ -12,6 +12,8 @@ namespace NotesProject.Pages.Notes
         private readonly UserService _userService;
         [BindProperty]
         public Note Note { get; set; }
+        [BindProperty]
+        public int CategoryId { get; set; }
 
         public EditModel(NotesRepository notesRepository, UserService userService)
         {
@@ -19,18 +21,20 @@ namespace NotesProject.Pages.Notes
             _userService = userService;
         }
 
-        public void OnGet(int id)
+        public void OnGet(int id, int categoryid)
         {
-            Note = _notesRepository.GetNote(id);
+            CategoryId = categoryid;
+            var userId = _userService.GetUserId();
+            Note = _notesRepository.GetNote(id, userId);
         }
 
         public IActionResult OnPost(int id)
         {
-            var note = _notesRepository.GetNote(id);
-
+            var userId = _userService.GetUserId();
+            var note = _notesRepository.GetNote(id, userId);
             note.Title = Note.Title;
             note.Content = Note.Content;
-            _notesRepository.EditNote(note);
+            _notesRepository.EditNote(note, userId);
             return RedirectToPage("Index", null, new { id = Note.CategoryId });
         }
     }

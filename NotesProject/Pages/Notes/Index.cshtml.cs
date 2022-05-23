@@ -33,17 +33,11 @@ namespace NotesProject.Pages.Notes
 
         public IActionResult OnPostDelete(int categoryId, int id)
         {
-            _notesRepository.RemoveNote(id);
+            var userId = _userService.GetUserId();
+            _notesRepository.RemoveNote(id, userId);
             return RedirectToPage("Index", null, new { id = categoryId });
         }
 
-        /*        public IActionResult OnSearchPost()
-                {
-                    var userId = _userService.GetUserId();
-                    Notes = _notesRepository.SearchNotes(Search, userId);
-                    return Page();
-
-                }*/
         public IActionResult OnPostSearch()
         {
             var userId = _userService.GetUserId();

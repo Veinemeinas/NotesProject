@@ -7,13 +7,12 @@
 	<h2>Pridėti užrašą</h2>
 	<div class="create-category-container category">
 		<form method="post">
-			<label asp-for="Note"></label>
-			<input asp-for="Note.Title" />
-			<input asp-for="Note.Content" />
+			<input asp-for="Note.Title" placeholder="Pavadinimas" />
+			<input asp-for="Note.Content" placeholder="Kontekstas" />
 			<input type="hidden" asp-for="Note.CategoryId" />
 			<input type="submit" value="Pridėti" />
 			<div class="edit">
-				<a asp-page="Index"><i class="fa-solid fa-arrow-left"></i></a>
+				<a asp-page="Index" asp-route-id="@Model.CategoryId"><i class="fa-solid fa-arrow-left"></i></a>
 			</div>
 		</form>
 	</div>

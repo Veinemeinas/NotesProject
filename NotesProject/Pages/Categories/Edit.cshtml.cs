@@ -23,7 +23,8 @@ namespace NotesProject.Pages.Categories
 
         public void OnGet(int id)
         {
-            Category = _categoriesRepository.GetCategory(id);
+            var userId = _userService.GetUserId();
+            Category = _categoriesRepository.GetCategory(id, userId);
         }
 
         public IActionResult OnPost(int id, string categoryName)

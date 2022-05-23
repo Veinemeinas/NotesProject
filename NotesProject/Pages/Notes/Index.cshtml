@@ -24,7 +24,7 @@
 					</div>
 
 					<div class="edit">
-						<a asp-page="Edit" asp-route-id="@note.Id"><i class="fa-solid fa-pen-to-square pen"></i></a>
+						<a asp-page="Edit" asp-route-id="@note.Id" asp-route-categoryid="@Model.CategoryId"><i class="fa-solid fa-pen-to-square pen"></i></a>
 						<button asp-page-handler="Delete" asp-route-categoryId="@note.CategoryId" asp-route-Id="@note.Id" class="button"><i class="fa-solid fa-xmark fa-lg"></i></button>
 					</div>
 				</div>

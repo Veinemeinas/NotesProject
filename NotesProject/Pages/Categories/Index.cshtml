@@ -7,7 +7,7 @@
 	<h2 class="h2-title">Greitoji užrašų paieška</h2>
 	<div class="search-section">
 		<form method="post">
-			<input asp-for="@Model.Search" />
+			<input asp-for="@Model.Search" placeholder="Paieška pagal užrašo pavadinimą" class="search" />
 			<input type="submit" value="Ieškoti" asp-page="../Notes/Search" asp-page-handler="Search" />
 		</form>
 	</div>

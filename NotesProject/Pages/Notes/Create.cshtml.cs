@@ -14,6 +14,8 @@ namespace NotesProject.Pages.Notes
         private readonly UserService _userService;
         [BindProperty]
         public Note Note { get; set; }
+        [BindProperty]
+        public int CategoryId { get; set; }
         public CreateModel(NotesRepository notesRepository, UserService userService)
         {
             _notesRepository = notesRepository;
@@ -22,6 +24,7 @@ namespace NotesProject.Pages.Notes
 
         public void OnGet(int noteCategory)
         {
+            CategoryId = noteCategory;
             Note = new Note() { CategoryId = noteCategory };
         }
 

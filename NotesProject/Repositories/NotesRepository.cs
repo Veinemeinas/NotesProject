@@ -17,9 +17,9 @@ namespace NotesProject.Repositories
             return _context.Notes.Where(n => n.CategoryId == id && n.UserId == userId).ToList();
         }
 
-        public Note GetNote(int id)
+        public Note GetNote(int id, string userId)
         {
-            return _context.Notes.FirstOrDefault(n => n.Id == id);
+            return _context.Notes.FirstOrDefault(n => n.Id == id && n.UserId == userId);
         }
 
         public void CreateNote(Note note)
@@ -28,17 +28,24 @@ namespace NotesProject.Repositories
             _context.SaveChanges();
         }
 
-        public void EditNote(Note note)
+        public void EditNote(Note note, string userId)
         {
-            _context.Notes.Update(note);
-            _context.SaveChanges();
+            var noteSelected = _context.Notes.FirstOrDefault(n => n.Id == note.Id);
+            if (noteSelected.UserId == userId)
+            {
+                _context.Notes.Update(note);
+                _context.SaveChanges();
+            }
         }
 
-        public void RemoveNote(int id)
+        public void RemoveNote(int id, string userId)
         {
             var note = _context.Notes.FirstOrDefault(c => c.Id == id);
-            _context.Remove(note);
-            _context.SaveChanges();
+            if (note.UserId == userId)
+            {
+                _context.Remove(note);
+                _context.SaveChanges();
+            }
         }
 
         public List<Note> SearchNotes(string search, string userId)

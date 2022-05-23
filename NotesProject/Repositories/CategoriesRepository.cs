@@ -13,14 +13,14 @@ namespace NotesProject.Repositories
             _context = context;
         }
 
-        public List<Category> GetCategories(string id)
+        public List<Category> GetCategories(string userId)
         {
-            return _context.Categories.Include(c => c.Notes).Where(c => c.UserId == id).ToList();
+            return _context.Categories.Include(c => c.Notes).Where(c => c.UserId == userId).ToList();
         }
 
-        public Category GetCategory(int id)
+        public Category GetCategory(int id, string userId)
         {
-            return _context.Categories.FirstOrDefault(c => c.Id == id);
+            return _context.Categories.FirstOrDefault(c => c.Id == id && c.UserId == userId);
         }
 
         public void CreateCategory(Category category)
@@ -35,11 +35,14 @@ namespace NotesProject.Repositories
             _context.SaveChanges();
         }
 
-        public void RemoveCategory(int id)
+        public void RemoveCategory(int id, string userId)
         {
             var category = _context.Categories.FirstOrDefault(c => c.Id == id);
-            _context.Remove(category);
-            _context.SaveChanges();
+            if (category.UserId == userId)
+            {
+                _context.Remove(category);
+                _context.SaveChanges();
+            }
         }
     }
 }
