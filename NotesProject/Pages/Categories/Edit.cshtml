@@ -1,0 +1,20 @@
+﻿@page
+@model NotesProject.Pages.Categories.EditModel
+@{
+}
+
+<section>
+	<h2>Keisti kategorijos pavadinimą</h2>
+	<div class="create-category-container category">
+		<form method="post">
+			<input asp-for="Category.CategoryName" placeholder="Kategorijos pavadinimas" />
+			<input type="submit" value="Redaguoti" />
+			<div class="edit">
+				<a asp-page="Index"><i class="fa-solid fa-arrow-left"></i></a>
+			</div>
+		</form>
+	</div>
+</section>
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}

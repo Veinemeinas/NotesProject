@@ -1,0 +1,33 @@
+﻿@page
+@model NotesProject.Pages.Notes.SearchModel
+@{
+}
+
+<section>
+	<h2>Tavo užrašai</h2>
+	<form method="post">
+		<div class="note-container">
+			@foreach (var note in Model.Notes)
+			{
+				<div class="note">
+					<div class="note-item">
+						<div>@note.Title</div>
+						<hr />
+						@{
+							var notesArray = note.Content.Split("; ");
+							foreach (var item in notesArray)
+							{
+								<div class="note-content">@item</div>
+							}
+						}
+					</div>
+					<div class="edit">
+						<a asp-page="Edit" asp-route-id="@note.Id"><i class="fa-solid fa-pen-to-square pen"></i></a>
+						<button asp-page-handler="Delete" asp-route-categoryId="@note.CategoryId" asp-route-Id="@note.Id" class="button"><i class="fa-solid fa-xmark fa-lg"></i></button>
+					</div>
+				</div>
+			}
+
+		</div>
+	</form>
+</section>

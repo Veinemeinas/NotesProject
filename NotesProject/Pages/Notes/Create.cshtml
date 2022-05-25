@@ -1,0 +1,22 @@
+﻿@page
+@model NotesProject.Pages.Notes.CreateModel
+@{
+}
+
+<section>
+	<h2>Pridėti užrašą</h2>
+	<div class="create-category-container category">
+		<form method="post">
+			<input asp-for="Note.Title" placeholder="Pavadinimas" />
+			<input asp-for="Note.Content" placeholder="Kontekstas" />
+			<input type="hidden" asp-for="Note.CategoryId" />
+			<input type="submit" value="Pridėti" />
+			<div class="edit">
+				<a asp-page="Index" asp-route-id="@Model.CategoryId"><i class="fa-solid fa-arrow-left"></i></a>
+			</div>
+		</form>
+	</div>
+</section>
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}
